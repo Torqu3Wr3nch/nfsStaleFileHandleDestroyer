@@ -2,5 +2,5 @@
 list=$(df 2>&1 | grep 'Stale file handle' | awk '{print ""$2"" }' | tr -d \:)
 for directory in $list
 do
-	umount $directory
+	umount "$directory"
 done
