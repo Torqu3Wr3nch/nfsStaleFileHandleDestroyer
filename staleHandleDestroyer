@@ -2,5 +2,6 @@
 list=$(df 2>&1 | grep 'Stale file handle' | awk '{print ""$2"" }' | tr -d \:)
 for directory in $list
 do
+	echo "Stale file handle on "$(date +"%D %T")" in directory: ""$directory"
 	umount "$directory"
 done
